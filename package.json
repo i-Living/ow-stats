@@ -2,7 +2,6 @@
   "name": "ow-stats",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://i-Living.github.io/ow-stats",
   "dependencies": {
     "chart.js": "^2.7.1",
     "react": "^16.2.0",
@@ -19,13 +18,11 @@
     "superagent": "^3.8.2"
   },
   "scripts": {
-    "deploy": "yarn build && gh-pages -d build",
+    "deploy": "npm run build && mv build/index.html build/200.html && surge build ow-stats.surge.sh",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "gh-pages": "^1.1.0"
-  }
+  "devDependencies": {}
 }
