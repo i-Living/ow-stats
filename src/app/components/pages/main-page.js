@@ -65,10 +65,18 @@ class MainPage extends Component {
           {
             this.state.isLoading
             ? this.renderLoadingState()
-            : (<div>
+            : (<div className="container col-md-6">
                 <p>For example: LIVING#2891</p>
-                <input type="text" placeholder="BatteTag" value={this.state.value} onChange={this.handleChange}/>
-                <button onClick={this.getUser}>Go</button>
+                <div className="row d-flex justify-content-center">
+                  <div className="col-md-6">
+                    <div className="input-group">
+                      <input type="text" className="form-control" placeholder="BatteTag" value={this.state.value} onChange={this.handleChange}/>
+                      <span className="input-group-btn">
+                        <button className="btn btn-primary" type="button" onClick={this.getUser}>Go!</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>)
           }
         </div>

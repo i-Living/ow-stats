@@ -72,9 +72,17 @@ class User extends Component {
               <div className="content">
                 <div>{user.username}</div>
                 <div>Start sr: {user.competitive.rank}</div>
-                <div></div>
-                <input type="text" value={this.state.score} onChange={this.handleChange}/>
-                <button onClick={this.onAddSR.bind(this)}>Add SR</button>
+                <br/>
+                <div className="row d-flex justify-content-center">
+                  <div className="col-md-2">
+                    <div className="input-group">
+                      <input type="text" className="form-control" value={this.state.score} onChange={this.handleChange}/>
+                      <span className="input-group-btn">
+                        <button className="btn btn-secondary" type="button" onClick={this.onAddSR.bind(this)}>Add SR</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
                 <LineChart payload= {this.state.scores}/>
                 <ScoreTable payload={this.state.scores}/>
               </div>)
