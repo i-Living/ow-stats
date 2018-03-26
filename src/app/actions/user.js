@@ -5,13 +5,13 @@ import {
   ADD_SR,
   GO_TO_USER_PAGE
 } from '../actionTypes'
-import {fetchUser as fetchUserApi} from '../api'
+import api from '../api'
+// import { fetchUserApi } from '../api'
 
 export const fetchUser = (userTag) => async dispatch => {
   dispatch({ type: FETCH_USER_START })
-
   try {
-    const user = await fetchUserApi(userTag)
+    const user = await api.user.fetchUser(userTag)
     dispatch({
       type: FETCH_USER_SUCCESS,
       payload: user
@@ -24,6 +24,23 @@ export const fetchUser = (userTag) => async dispatch => {
     })
   }
 }
+
+// export const fetchUser = (userTag) => async dispatch => {
+//   dispatch({ type: FETCH_USER_START })
+//   try {
+//     const user = await fetchUserApi(userTag)
+//     dispatch({
+//       type: FETCH_USER_SUCCESS,
+//       payload: user
+//     })
+//   } catch (err) {
+//     dispatch({
+//       type: FETCH_USER_FAILURE,
+//       payload: err,
+//       error: true
+//     })
+//   }
+// }
 
 export const addSR = (value, scores) => dispatch => {
   const newScores = scores

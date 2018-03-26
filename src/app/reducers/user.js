@@ -1,21 +1,34 @@
-import {
-  FETCH_USER_START,
-  FETCH_USER_SUCCESS,
-  FETCH_USER_FAILURE,
-  GO_TO_USER_PAGE
-} from '../actionTypes'
+import * as types from '../actionTypes'
 
-const initialState = []
-
-export default function user(state = initialState, {type, payload}) {
+export default function user (state = {}, {type, payload}) {
   switch (type) {
-    case FETCH_USER_START:
+    case types.USER_LOGIN_SUCCESS:
+      return payload
+    case types.USER_LOGIN_FAILURE:
+      return {
+        ...state,
+        ...payload
+      }
+    case types.USER_SIGNUP_SUCCESS:
+      return payload
+    case types.USER_SIGNUP_FAILURE:
+      return {
+        ...state,
+        ...payload
+      }
+    case types.USER_LOGGED_OUT_SUCCESS:
+      return {}
+    case types.FETCH_USER_START:
       return state
-    case FETCH_USER_SUCCESS:
+    case types.FETCH_USER_SUCCESS:
       return payload
-    case FETCH_USER_FAILURE:
+    case types.FETCH_USER_FAILURE:
       return payload
-    case GO_TO_USER_PAGE:
+    case types.GO_TO_SIGNIN_FORM:
+      return {}
+    case types.GO_TO_SIGNUP_FORM:
+      return {}
+    case types.GO_TO_USER_PAGE:
       return payload
     default:
       return state
