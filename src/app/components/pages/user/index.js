@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import { fetchUser, addSR } from '../../../actions/user'
+import { fetchUser, addSR, addAccount } from '../../../actions/user'
 import ScoreTable from './ScoreTable'
 import LineChart from './LineChart'
 import OverwatchSpiner from '../../Spiner'
@@ -59,6 +59,19 @@ class User extends Component {
     this.setState({ scores: this.state.scores })
   }
 
+  onAddUser() {
+    const data = {
+      userTag: this.state.userTag,
+      score: [{
+        score: this.state.score * 1,
+        status: 'Draw',
+        change: 0,
+        date: Date.now(),
+      }]
+    }
+    this.props.addAccount(data)
+  }
+
   render() {
     const { user } = this.props
     return (
@@ -66,6 +79,12 @@ class User extends Component {
         {user.username ? (
           <div className="content">
             <div>{user.username}</div>
+            <button
+              className="btn btn-secondary"
+              type="button"
+              onClick={this.onAddUser.bind(this)}
+            > Add user
+            </button>
             <div>Start sr: {user.competitive.rank}</div>
             <br />
             <div className="row d-flex justify-content-center">
@@ -111,6 +130,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   fetchUser,
   addSR,
+  addAccount
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(User))

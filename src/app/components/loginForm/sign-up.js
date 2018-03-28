@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import '../styles/login-form.css'
+import '../../styles/login-form.css'
 
 const SignUp = (props) => {
   return (
@@ -20,17 +20,6 @@ const SignUp = (props) => {
       />
       {props.loginError && <div className='form-input-error'> {props.loginError} </div>}
       {props.emptyFields.email && <div className='form-input-error'>Email is required</div>}
-      <label htmlFor='inputLogin' className='form-label mt-2'>Login</label>
-      <input
-        type='text'
-        name='username'
-        id='inputLogin'
-        className='form-control no-br'
-        placeholder='Login'
-        value={props.username}
-        onChange={props.onChange}
-      />
-      {props.emptyFields.username && <div className='form-input-error'>Login is required</div>}
       <label htmlFor='inputPassword' className='form-label mt-2'>Password</label>
       <input
         type='password'
@@ -63,14 +52,12 @@ const SignUp = (props) => {
 SignUp.propTypes = {
   payload: PropTypes.shape({
     email: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     password2: PropTypes.string.isRequired,
     wrongPass: PropTypes.bool.isRequired
   }).isRequired,
   emptyFields: PropTypes.shape({
     email: PropTypes.bool.isRequired,
-    username: PropTypes.bool.isRequired,
     password: PropTypes.bool.isRequired,
     password2: PropTypes.bool.isRequired
   }).isRequired,

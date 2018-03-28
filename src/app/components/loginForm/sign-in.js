@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-import '../styles/login-form.css'
+import '../../styles/login-form.css'
 
 const SignIn = (props) => {
   return (
@@ -18,7 +19,10 @@ const SignIn = (props) => {
         autoFocus
       />
       {props.emptyFields.email && <div className='form-input-error'>Email is required</div>}
-      <label htmlFor='inputPassword' className='form-label'>Password</label>
+      <div className='d-flex justify-content-between'>
+        <label htmlFor='inputPassword' className='form-label'>Password</label>
+        <Link to='/forgot-password' className='text-right' onClick={this.onGoToResetPass}>Forgot password?</Link>
+      </div>
       <input
         type='password'
         name='password'

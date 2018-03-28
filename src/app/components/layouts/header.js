@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const Header = (props) => {
-  const { user, location, isAuthenticated } = props
+  const { location, isAuthenticated } = props
   return (
     <div className='text-center'>
       <header className='App-header'>
         {!isAuthenticated
           ? (
             <div className=''>
-              <h4>PW Application</h4>
+              <h4>OW Stats</h4>
               {(location.pathname === '/sign-in' || location.pathname === '/sign-up')
                 ? <div />
                 : <div className='login-section'>
@@ -23,13 +23,10 @@ const Header = (props) => {
           )
           : (
             <div className='d-flex justify-content-between'>
-              <div className='user'>
-                {user.username && <h5>{user.username}: {user.balance}</h5>}
-              </div>
               <div className='header-navigation'>
-                <Link className='px-2' to='/' className="Menu-item">Main</Link>
-                <Link className='px-2' to='/login-page' className="Menu-item">Login</Link>
-                <Link className='px-2' to='/users' className="Menu-item">Users</Link>
+                <Link className='Menu-item px-2' to='/'>Main</Link>
+                <Link className='Menu-item px-2' to='/login-page'>Login</Link>
+                <Link className='Menu-item px-2' to='/users'>Users</Link>
               </div>
               <Link to='/logout'> Logout </Link>
             </div>
@@ -42,11 +39,7 @@ const Header = (props) => {
 
 Header.propTypes = {
   location: PropTypes.object.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
-  user: PropTypes.shape({
-    username: PropTypes.string,
-    balance: PropTypes.number
-  })
+  isAuthenticated: PropTypes.bool.isRequired
 }
 
 export default Header

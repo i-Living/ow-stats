@@ -16,8 +16,30 @@ export default function user (state = {}, {type, payload}) {
         ...state,
         ...payload
       }
+    case types.RESET_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        ...payload
+      }
+    case types.RESET_PASSWORD_FAILURE:
+      return {
+        ...state,
+        ...payload
+      }
     case types.USER_LOGGED_OUT_SUCCESS:
       return {}
+    case types.ADD_ACCOUT_START:
+      return state
+    case types.ADD_ACCOUT_SUCCESS:
+      return {
+        ...state,
+        ...payload
+      }
+    case types.ADD_ACCOUT_FAILURE:
+      return {
+        ...state,
+        ...payload
+      }
     case types.FETCH_USER_START:
       return state
     case types.FETCH_USER_SUCCESS:
