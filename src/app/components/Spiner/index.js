@@ -1,7 +1,7 @@
 // Spiner source code: https://codepen.io/CCG/pen/KrANmJ
 
 import React from 'react';
-import './style.css'
+import './style.scss'
 
 class OverwatchSpiner extends React.Component {
   render() {

@@ -7,7 +7,7 @@ import User from './pages/user'
 import Footer from '../containers/layout/footer';
 import Header from '../containers/layout/header'
 
-import '../App.css'
+import '../App.scss'
 
 const Root = ({ store }) => (
   <Provider store={store}>

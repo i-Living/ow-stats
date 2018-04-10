@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import '../../styles/login-form.css'
+import '../../styles/login-form.scss'
 
 const SignUp = (props) => {
   return (

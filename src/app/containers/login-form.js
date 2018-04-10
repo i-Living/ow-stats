@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { login, signup, goToSignIn, goToSignUp } from '../actions/login'
 import SignIn from '../components/loginForm/sign-in'
 import SignUp from '../components/loginForm/sign-up'
-import '../styles/login-form.css'
+import '../styles/login-form.scss'
 
 class LoginForm extends Component {
   constructor (props) {

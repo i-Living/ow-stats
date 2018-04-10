@@ -12,7 +12,7 @@ import ResetPassword from './containers/reset-password'
 import Logout from './containers/logout'
 import { logout } from './actions/login'
 
-import './styles/App.css'
+import './styles/App.scss'
 
 class App extends React.Component {
   render () {

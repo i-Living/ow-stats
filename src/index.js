@@ -11,8 +11,8 @@ import App from './app/App'
 import setAuthorizationHeader from './app/utils/setAuthorizationHeader'
 import { USER_LOGIN_SUCCESS } from './app/actionTypes'
 
-import './app/styles/index.css'
-import './app/styles/bootstrap.min.css'
+import './app/styles/index.scss'
+import './app/styles/bootstrap.min.scss'
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
